@@ -1,7 +1,6 @@
-.todoItem {
-  --width-height: 50px;
-  --font-size: 30px;
-}
+$width-height: 50px;
+$font-size: 50px;
+
 .todoItem {
   display: flex;
   background-color: #2d2d2d;
@@ -20,7 +19,7 @@
   }
   &__title {
     font-size: 25px;
-    &_completed{
+    &_completed {
       text-decoration: line-through;
       opacity: 0.5;
     }
@@ -32,21 +31,21 @@
   }
   &__removeBtn {
     color: black;
-    font-size: var(--font-size);
+    font-size: $font-size;
     padding: 0px 10px;
     font-weight: bold;
-    width: var(--width-height);
-    height: var(--width-height);
+    width: $width-height;
+    height: $width-height;
     cursor: pointer;
     &:hover {
       color: red;
     }
   }
   &__completeBtn {
-    font-size: var(--font-size);
+    font-size: $font-size;
     padding: 0px 10px;
-    width: var(--width-height);
-    height: var(--width-height);
+    width: $width-height;
+    height: $width-height;
     font-weight: bold;
     cursor: pointer;
     &:hover {
