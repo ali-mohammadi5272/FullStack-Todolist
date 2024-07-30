@@ -1,22 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axiosRequest from "../../services/axios/axios";
 
 export const getTodosFromServer = createAsyncThunk(
   "Todos/getTodosFromServer",
   async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/api/todos`
-    );
+    const response = await axiosRequest.get(`/api/todos`);
     return response.data;
   }
 );
 export const addTodoToServer = createAsyncThunk(
   "Todos/addTodoToServer",
   async (data) => {
-    const response = await axios.post(
-      `${process.env.REACT_APP_BASE_URL}/api/todos`,
-      data
-    );
+    const response = await axiosRequest.post(`/api/todos`, data);
     return response.data;
   }
 );
@@ -24,9 +19,7 @@ export const addTodoToServer = createAsyncThunk(
 export const removeTodoFromServer = createAsyncThunk(
   "Todos/removeTodoFromServer",
   async (todoId) => {
-    const response = await axios.delete(
-      `${process.env.REACT_APP_BASE_URL}/api/todos/${todoId}`
-    );
+    const response = await axiosRequest.delete(`/api/todos/${todoId}`);
     return response.data;
   }
 );
@@ -34,10 +27,9 @@ export const removeTodoFromServer = createAsyncThunk(
 export const sendCompleteTodoToServer = createAsyncThunk(
   "Todos/sendCompleteTodoToServer",
   async (payload) => {
-    const response = await axios.put(
-      `${process.env.REACT_APP_BASE_URL}/api/todos/${payload._id}`,
-      { isCompleted: payload.isCompleted }
-    );
+    const response = await axiosRequest.put(`/api/todos/${payload._id}`, {
+      isCompleted: payload.isCompleted,
+    });
     return response.data;
   }
 );
