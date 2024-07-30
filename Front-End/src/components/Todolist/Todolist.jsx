@@ -3,6 +3,7 @@ import TodoItem from "../TodoItem/TodoItem";
 import styles from "./todolist.module.scss";
 import { addTodoToServer, getTodosFromServer } from "../../Redux/stores/Todos";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 function Todolist() {
   const dispatch = useDispatch();
@@ -12,8 +13,12 @@ function Todolist() {
   }, []);
   const [addDataObject, setAddDataObject] = useState({ title: "" });
   const addTodoHandler = () => {
-    dispatch(addTodoToServer({ title: addDataObject.title }));
-    setAddDataObject({ title: "" });
+    if (addDataObject.title) {
+      dispatch(addTodoToServer({ title: addDataObject.title }));
+      setAddDataObject({ title: "" });
+    } else {
+      toast.error("Please insert a title !!");
+    }
   };
   return (
     <>
