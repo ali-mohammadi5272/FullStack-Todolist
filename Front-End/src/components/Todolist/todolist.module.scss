@@ -5,12 +5,14 @@
   width: 50%;
   text-align: center;
   border-radius: 5px;
+  color: white;
 }
 .todolist {
   width: 50%;
   background-color: #333333;
   border-radius: 5px;
   padding: 20px 20px;
+  color: white;
   &__addtodoSection {
     display: flex;
     width: 100%;
