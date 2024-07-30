@@ -9,7 +9,12 @@ function Todolist() {
   const dispatch = useDispatch();
   const todos = useSelector((state) => state);
   useEffect(() => {
-    dispatch(getTodosFromServer());
+    const abortController = new AbortController();
+    dispatch(getTodosFromServer(abortController));
+
+    return () => {
+      abortController.abort();
+    };
   }, []);
   const [addDataObject, setAddDataObject] = useState({ title: "" });
   const addTodoHandler = () => {
