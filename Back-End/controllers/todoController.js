@@ -6,7 +6,7 @@ export const getAll = async (req, res) => {
     const todos = await todoModel.find({}, "-__v").lean();
     return res.status(200).json(todos);
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ message: error.message });
   }
 };
 export const addTodo = async (req, res) => {
@@ -24,7 +24,7 @@ export const addTodo = async (req, res) => {
       todo: todoObject,
     });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ message: error.message });
   }
 };
 export const getTodo = async (req, res) => {
@@ -40,7 +40,7 @@ export const getTodo = async (req, res) => {
     }
     return res.status(200).json(todo);
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ message: error.message });
   }
 };
 export const removeTodo = async (req, res) => {
@@ -59,7 +59,7 @@ export const removeTodo = async (req, res) => {
       todo,
     });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ message: error.message });
   }
 };
 export const completeTodo = async (req, res) => {
@@ -86,6 +86,6 @@ export const completeTodo = async (req, res) => {
       todo: { ...todo, isCompleted },
     });
   } catch (error) {
-    return res.status(500).json({ error: error.message });
+    return res.status(500).json({ message: error.message });
   }
 };
