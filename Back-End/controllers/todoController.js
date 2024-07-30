@@ -55,7 +55,7 @@ export const removeTodo = async (req, res) => {
       return res.status(404).json({ message: "Todo not found !!" });
     }
     return res.status(200).json({
-      message: "Todo deleted successfully :))",
+      message: "Todo removed successfully :))",
       todo,
     });
   } catch (error) {
