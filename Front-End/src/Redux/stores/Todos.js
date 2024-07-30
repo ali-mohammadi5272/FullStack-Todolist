@@ -3,8 +3,10 @@ import axiosRequest from "../../services/axios/axios";
 
 export const getTodosFromServer = createAsyncThunk(
   "Todos/getTodosFromServer",
-  async () => {
-    const response = await axiosRequest.get(`/api/todos`);
+  async (abortController) => {
+    const response = await axiosRequest.get(`/api/todos`, {
+      signal: abortController.signal,
+    });
     return response.data;
   }
 );
