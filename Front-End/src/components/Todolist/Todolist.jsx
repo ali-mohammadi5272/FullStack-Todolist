@@ -17,7 +17,8 @@ function Todolist() {
     };
   }, []);
   const [addDataObject, setAddDataObject] = useState({ title: "" });
-  const addTodoHandler = () => {
+  const addTodoHandler = (e) => {
+    e.preventDefault();
     if (addDataObject.title) {
       dispatch(addTodoToServer({ title: addDataObject.title }));
       setAddDataObject({ title: "" });
@@ -30,7 +31,7 @@ function Todolist() {
       <h1 className={styles.title}>Todolist</h1>
       <div className={styles.todolist}>
         <div className={styles.todolist__addtodoSection}>
-          <div className={styles.todolist__inputSection}>
+          <form className={styles.todolist__addtodoForm} action="" onSubmit={addTodoHandler}>
             <input
               value={addDataObject.title}
               onChange={(e) => {
@@ -39,16 +40,13 @@ function Todolist() {
               className={styles.todolist__input}
               type="text"
             />
-          </div>
-          <div className={styles.todolist__btnSection}>
-            <button
+            <input
               type="button"
               onClick={addTodoHandler}
               className={styles.todolist__btn}
-            >
-              ADD
-            </button>
-          </div>
+              value="ADD"
+            />
+          </form>
         </div>
         {todos.map((todo, index) => (
           <TodoItem key={index} {...todo} />
