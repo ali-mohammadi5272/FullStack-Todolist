@@ -5,10 +5,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div className={styles.app}>
-      <Todolist />
+    <>
+      <div className={styles.app}>
+        <Todolist />
+      </div>
       <ToastContainer />
-    </div>
+    </>
   );
 }
 
