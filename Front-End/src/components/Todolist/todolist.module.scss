@@ -13,6 +13,13 @@
   border-radius: 5px;
   padding: 20px 20px;
   color: white;
+  &__title {
+    letter-spacing: 7.5px;
+    font-size: 40px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+  }
   &__addtodoSection {
     display: flex;
     width: 100%;
