@@ -28,10 +28,14 @@ function Todolist() {
   };
   return (
     <>
-      <h1 className={styles.title}>Todolist</h1>
       <div className={styles.todolist}>
+        <h1 className={styles.todolist__title}>Todolist</h1>
         <div className={styles.todolist__addtodoSection}>
-          <form className={styles.todolist__addtodoForm} action="" onSubmit={addTodoHandler}>
+          <form
+            className={styles.todolist__addtodoForm}
+            action=""
+            onSubmit={addTodoHandler}
+          >
             <input
               value={addDataObject.title}
               onChange={(e) => {
